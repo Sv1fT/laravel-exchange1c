@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Sv1fT\LaravelExchange1C;
 
+use Orchid\Platform\Dashboard;
 use Sv1fT\Exchange1C\Config;
 use Sv1fT\Exchange1C\Interfaces\EventDispatcherInterface;
 use Sv1fT\Exchange1C\Interfaces\ModelBuilderInterface;
@@ -32,7 +33,9 @@ class Exchange1CServiceProvider extends ServiceProvider
         // config
         $this->publishes([__DIR__.'/../publish/config/' => config_path()], 'config');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->publishes([
+            Dashboard::path('database/migrations') => database_path('migrations'),
+        ], 'migrations');
     }
 
     /**
