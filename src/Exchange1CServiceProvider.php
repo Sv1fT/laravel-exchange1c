@@ -33,9 +33,7 @@ class Exchange1CServiceProvider extends ServiceProvider
         // config
         $this->publishes([__DIR__.'/../publish/config/' => config_path()], 'config');
 
-        $this->publishes([
-            Dashboard::path('database/migrations') => database_path('migrations'),
-        ], 'migrations');
+        $this->publishes([__DIR__.'/../publish/database/migrations' => database_path('migrations')], 'migrations');
     }
 
     /**
