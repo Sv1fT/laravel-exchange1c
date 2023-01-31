@@ -1,18 +1,18 @@
 <?php
 /**
- * This file is part of bigperson/laravel-exchange1c package.
+ * This file is part of Sv1fT/laravel-exchange1c package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace Bigperson\LaravelExchange1C;
+namespace Sv1fT\LaravelExchange1C;
 
-use Bigperson\Exchange1C\Config;
-use Bigperson\Exchange1C\Interfaces\EventDispatcherInterface;
-use Bigperson\Exchange1C\Interfaces\ModelBuilderInterface;
-use Bigperson\Exchange1C\ModelBuilder;
+use Sv1fT\Exchange1C\Config;
+use Sv1fT\Exchange1C\Interfaces\EventDispatcherInterface;
+use Sv1fT\Exchange1C\Interfaces\ModelBuilderInterface;
+use Sv1fT\Exchange1C\ModelBuilder;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,6 +31,8 @@ class Exchange1CServiceProvider extends ServiceProvider
 
         // config
         $this->publishes([__DIR__.'/../publish/config/' => config_path()], 'config');
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     /**

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Bigperson\LaravelExchange1C\Exchange1CServiceProvider;
+use Sv1fT\LaravelExchange1C\Exchange1CServiceProvider;
 
 /**
  * Class TestCase.

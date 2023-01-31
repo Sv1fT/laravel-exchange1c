@@ -1,18 +1,18 @@
 <?php
 /**
- * This file is part of bigperson/laravel-exchange1c package.
+ * This file is part of Sv1fT/laravel-exchange1c package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 declare(strict_types=1);
 
-namespace Bigperson\LaravelExchange1C\Jobs;
+namespace Sv1fT\LaravelExchange1C\Jobs;
 
-use Bigperson\Exchange1C\Services\AuthService;
-use Bigperson\Exchange1C\Services\CatalogService;
-use Bigperson\Exchange1C\Services\CategoryService;
-use Bigperson\Exchange1C\Services\OfferService;
+use Sv1fT\Exchange1C\Services\AuthService;
+use Sv1fT\Exchange1C\Services\CatalogService;
+use Sv1fT\Exchange1C\Services\CategoryService;
+use Sv1fT\Exchange1C\Services\OfferService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

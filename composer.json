@@ -18,7 +18,7 @@
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "sv1ft\\LaravelExchange1C\\": "src/"
+      "Sv1fT\\LaravelExchange1C\\": "src/"
     }
   },
   "autoload-dev": {

@@ -7,16 +7,16 @@
     "content-hash": "216bf977a843928a92cab928e978ad9e",
     "packages": [
         {
-            "name": "bigperson/exchange1c",
+            "name": "Sv1fT/exchange1c",
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bigperson/exchange1c.git",
+                "url": "https://github.com/Sv1fT/exchange1c.git",
                 "reference": "6603b59197ead5886a2b13ee4c0825ffb173d3a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigperson/exchange1c/zipball/6603b59197ead5886a2b13ee4c0825ffb173d3a6",
+                "url": "https://api.github.com/repos/Sv1fT/exchange1c/zipball/6603b59197ead5886a2b13ee4c0825ffb173d3a6",
                 "reference": "6603b59197ead5886a2b13ee4c0825ffb173d3a6",
                 "shasum": ""
             },
@@ -33,7 +33,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Bigperson\\Exchange1C\\": "src/"
+                    "Sv1fT\\Exchange1C\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -47,7 +47,7 @@
                 }
             ],
             "description": "Catalog Loader from 1c - CommerceML protocol",
-            "homepage": "https://github.com/bigperson",
+            "homepage": "https://github.com/Sv1fT",
             "keywords": [
                 "1c",
                 "1c-exchange",

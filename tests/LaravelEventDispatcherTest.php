@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of bigperson/laravel-exchange1c package.
+ * This file is part of Sv1fT/laravel-exchange1c package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Bigperson\Exchange1C\Interfaces\EventDispatcherInterface;
-use Bigperson\Exchange1C\Interfaces\EventInterface;
-use Bigperson\LaravelExchange1C\LaravelEventDispatcher;
+use Sv1fT\Exchange1C\Interfaces\EventDispatcherInterface;
+use Sv1fT\Exchange1C\Interfaces\EventInterface;
+use Sv1fT\LaravelExchange1C\LaravelEventDispatcher;
 
 class LaravelEventDispatcherTest extends TestCase
 {
