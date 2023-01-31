@@ -39,7 +39,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Sv1ft\\LaravelExchange1C\\Exchange1CServiceProvider"
+        "Sv1fT\\LaravelExchange1C\\Exchange1CServiceProvider"
       ]
     }
   }
