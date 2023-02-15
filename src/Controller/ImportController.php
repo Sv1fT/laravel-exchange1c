@@ -95,6 +95,7 @@ class ImportController extends Controller
                         $type,
                         $mode
                     ));
+                    $response = 'success';
                 }
                 $this->log(sprintf(
                     'New sale request, type: %s, mode: %s, response: %s. Logic for sale type not released!',
