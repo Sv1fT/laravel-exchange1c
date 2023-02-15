@@ -33,7 +33,7 @@ class CatalogServiceJob implements ShouldQueue
      *
      * @var int
      */
-    public $timeout = 60 * 10;
+//    public $timeout = 60 * 10;
 
     private $requestData;
     private $sessionData;

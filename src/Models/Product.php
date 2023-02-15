@@ -106,7 +106,7 @@ class Product extends Model implements ProductInterface
 
     public function addImage1c($path, $caption)
     {
-        // TODO: Implement addImage1c() method.
+        //
     }
 
     public function getGroup1c()

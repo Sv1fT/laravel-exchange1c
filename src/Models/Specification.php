@@ -11,10 +11,9 @@ class Specification extends Model
 
     public static function createByMl($specification)
     {
-        if (!$specificationModel = self::where('accounting_id', $specification->id)->first()) {
+        if (!$specificationModel = self::where('name', $specification->name)->first()) {
             $specificationModel = new self;
             $specificationModel->name = $specification->name;
-            $specificationModel->accounting_id = $specification->id;
             $specificationModel->save();
         }
         return $specificationModel;

@@ -35,7 +35,10 @@ class Price extends Model
 
     public static function createByMl($price, $offer, $type)
     {
-        if (!$priceModel = self::where('type_id', $type->id)->first()) {
+        if (!$priceModel = $offer::with(['prices' => function ($query) use ($type, $offer) {
+            $query->where('type_id', $type->id);
+            $query->wherePivot('offer_id', $offer->id);
+        }])->first()->prices->first()) {
             $priceModel = new self();
         }
         $priceModel->value = $price->cost;

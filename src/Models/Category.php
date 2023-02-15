@@ -89,7 +89,7 @@ class Category extends Model implements GroupInterface
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'category_id', 'accounting_id');
+        return $this->hasMany(Product::class, 'group_id', 'id');
     }
 
     public function getPrimaryKey()

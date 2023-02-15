@@ -53,12 +53,12 @@ class Offer extends Model implements OfferInterface
 
     public static function getIdFieldName1c()
     {
-        // TODO: Implement getIdFieldName1c() method.
+        return 'accounting_id';
     }
 
     public function getPrimaryKey()
     {
-        // TODO: Implement getPrimaryKey() method.
+        return $this->primaryKey;
     }
 
     public function getGroup1c()
@@ -101,7 +101,6 @@ class Offer extends Model implements OfferInterface
         if ($names === null) {
             $names = $this->attributes;
         }
-        $names = array_flip($names);
         $attributes = [];
         if ($this->_oldAttributes === null) {
             foreach ($this->attributes as $name => $value) {
