@@ -11,6 +11,7 @@ namespace Sv1fT\LaravelExchange1C\Controller;
 
 use Sv1fT\Exchange1C\Exceptions\Exchange1CException;
 use Sv1fT\Exchange1C\Services\CatalogService;
+use Sv1fT\Exchange1C\Services\SaleService;
 use Sv1fT\LaravelExchange1C\Jobs\CatalogServiceJob;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -39,10 +40,11 @@ class ImportController extends Controller
     /**
      * @param Request        $request
      * @param CatalogService $service
+     * @param SaleService   $saleService
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function request(Request $request, CatalogService $service)
+    public function request(Request $request, CatalogService $service, SaleService $saleService)
     {
         $mode = $request->get('mode');
         $type = $request->get('type');
@@ -82,12 +84,22 @@ class ImportController extends Controller
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
             } elseif ($type === 'sale') {
-                $response = $service->checkauth();
+                if (!method_exists($saleService, $mode)) {
+                    throw new Exchange1CException('not correct request, class ExchangeCML not found');
+                }
+                try {
+                    $response = $service->$mode();
+                } catch (\Throwable $throwable){
+                    $this->log(sprintf(
+                       $throwable->getMessage(),
+                        $type,
+                        $mode
+                    ));
+                }
                 $this->log(sprintf(
                     'New sale request, type: %s, mode: %s, response: %s. Logic for sale type not released!',
                     $type,
-                    $mode,
-                    $response
+                    $mode
                 ));
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
