@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace Sv1fT\LaravelExchange1C\Controller;
 
 use Sv1fT\Exchange1C\Exceptions\Exchange1CException;
+use Sv1fT\Exchange1C\Interfaces\CatalogInterface;
+use Sv1fT\Exchange1C\Interfaces\SaleInterface;
 use Sv1fT\Exchange1C\Services\CatalogService;
 use Sv1fT\Exchange1C\Services\SaleService;
 use Sv1fT\LaravelExchange1C\Jobs\CatalogServiceJob;
@@ -39,12 +41,10 @@ class ImportController extends Controller
 
     /**
      * @param Request        $request
-     * @param CatalogService $service
-     * @param SaleService   $saleService
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function request(Request $request, CatalogService $service, SaleService $saleService)
+    public function request(Request $request, CatalogInterface $service)
     {
         $mode = $request->get('mode');
         $type = $request->get('type');
@@ -84,8 +84,8 @@ class ImportController extends Controller
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
             } elseif ($type === 'sale') {
-                if (!method_exists($saleService, $mode)) {
-                    throw new Exchange1CException('not correct request, class ExchangeCML not found');
+                if (!method_exists($service, $mode)) {
+                    throw new Exchange1CException('not correct request, class SaleService not found');
                 }
                 try {
                     $response = $service->$mode();
@@ -93,14 +93,16 @@ class ImportController extends Controller
                     $this->log(sprintf(
                        $throwable->getMessage(),
                         $type,
-                        $mode
+                        $mode,
+                        ''
                     ));
                     $response = 'success';
                 }
                 $this->log(sprintf(
                     'New sale request, type: %s, mode: %s, response: %s. Logic for sale type not released!',
                     $type,
-                    $mode
+                    $mode,
+                    ''
                 ));
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
