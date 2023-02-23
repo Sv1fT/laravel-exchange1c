@@ -87,6 +87,10 @@ class ImportController extends Controller
                 if (!method_exists($service, $mode)) {
                     throw new Exchange1CException('not correct request, class SaleService not found');
                 }
+                if($mode == 'query'){
+                    return $service->$mode();
+                }
+                
                 try {
                     $response = $service->$mode();
                 } catch (\Throwable $throwable){
@@ -99,10 +103,10 @@ class ImportController extends Controller
                     $response = 'success';
                 }
                 $this->log(sprintf(
-                    'New sale request, type: %s, mode: %s, response: %s. Logic for sale type not released!',
+                    'New sale request, type: %s, mode: %s, response: %s.',
                     $type,
                     $mode,
-                    ''
+                    $response
                 ));
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
